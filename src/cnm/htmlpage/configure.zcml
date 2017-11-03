@@ -1,0 +1,41 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="cnm.htmlpage">
+
+  <i18n:registerTranslations directory="locales" />
+
+  <includeDependencies package="." />
+
+  <include package=".browser" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="cnm.htmlpage"
+      directory="profiles/default"
+      description="Installs the cnm.htmlpage add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.post_install"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="cnm.htmlpage (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the cnm.htmlpage add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.uninstall"
+      />
+
+  <permission id="cnm.add.htmlpage" title="CNM: Add HTMLPage">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+  </permission>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="cnm.htmlpage-hiddenprofiles" />
+
+</configure>

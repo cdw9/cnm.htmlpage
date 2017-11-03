@@ -1,0 +1,6 @@
+[report]
+include =
+    src/cnm/*
+omit =
+    */test*
+    */upgrades/*

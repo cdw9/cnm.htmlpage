@@ -1,0 +1,2 @@
+<!DOCTYPE html>
+<tal:code content="structure context/html_content" />

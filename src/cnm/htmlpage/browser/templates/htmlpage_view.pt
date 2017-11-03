@@ -1,0 +1,27 @@
+<tal:not-admin condition="not: view/is_admin">
+     <tal:code content="structure context/html_content" />
+ </tal:not-admin>
+
+<tal:admin condition="view/is_admin">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="plone">
+    <body>
+
+    <metal:content-core fill-slot="content-core">
+        <h3>You are seeing this because you have permission to edit this page.
+            Users without permission will only see what is in the preview below.</h3>
+        
+        <iframe style="display: none" src=""></iframe>
+        <!-- iframe loads the second time ¯\_(ツ)_/¯ -->
+        <iframe width="800" height="300" src="${context/absolute_url}/preview"></iframe>
+        
+    </metal:content-core>
+
+    </body>
+    </html>
+</tal:admin>

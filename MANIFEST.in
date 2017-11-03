@@ -1,0 +1,4 @@
+graft src/cnm
+graft docs
+include *.rst
+global-exclude *.pyc

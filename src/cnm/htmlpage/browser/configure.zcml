@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="cnm.htmlpage">
+
+  <browser:page
+      name="htmlpage_view"
+      for="cnm.htmlpage.interfaces.IHTMLPage"
+      class=".htmlpage.HTMLPage"
+      template="templates/htmlpage_view.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="preview"
+      for="cnm.htmlpage.interfaces.IHTMLPage"
+      template="templates/preview.pt"
+      permission="zope2.View"
+      />
+
+</configure>
